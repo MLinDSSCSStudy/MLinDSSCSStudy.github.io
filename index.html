@@ -9,7 +9,7 @@
   <div id='Intro'>
   <head>
  <h1>
-  Machine Learning and Decision Support Study (MLaDS) - Computer Science Perspective
+    Machine Learning and Decision Support Study (MLaDS) - ML Expert Perspective
  </h1>
 </head>
 <div class='upperInfo'>
@@ -51,7 +51,7 @@
     <p>Any personal information that could identify you will not be collected or be removed before files are shared with other researchers or results are made public.</p>
     <p>The principal researcher is Owen Lahav, who is attached to the Department of Computer Science at the University of Oxford. This project is being completed under the supervision of Mihaela van der Schaar of the Oxford Man Institute. This project has been reviewed by the University of Oxford’s Department of Computer Science’s Research Ethics Committee.</p>
     <h3>What if there is a problem?</h3>
-        <p>If you have a concern about any aspect of this project, please speak to the researcher at oren.lahav@gtc.ox.ac.uk who will do his best to answer your query. The researcher should acknowledge your concern within 10 working days and give you an indication of how they intend to deal with it.</p>
+        <p>If you have a concern about any aspect of this project, please speak to the researcher at owen.lahav@gtc.ox.ac.uk who will do his best to answer your query. The researcher should acknowledge your concern within 10 working days and give you an indication of how they intend to deal with it.</p>
         <p>If you are over 18 and have read the information above and agree to participate with the understanding that the data (including any personal data) you submit will be processed accordingly, please click the ‘Start’ box below to get started. By doing so you will be providing your consent to participate.</p>
   </div>
 </div>
@@ -80,7 +80,7 @@
  <div class = 'IntroPart1'>
         <h2><b>Part 1</b>: About the Model</h2>
         <p>Starting on the next screen, you will be presented with information and evidence about the Machine Learning Model that was used to create a decision-support system to present to medical experts.</p>
-        <p>Please review each piece of information about the model and indicate your personal belief regarding whether doctors would find this information useful in increasing their comprehension of, and confidence in, the ML model and decision-support system based on it.</p>
+        <p>Please review each piece of information about the model and indicate your personal belief regarding whether doctors would find this information useful in increasing their confidence in the ML model and decision-support system based on it.</p>
         <p>Click 'Next' to proceed</p>
         <button class='StartPart1Button'>Next</button>
  </div>
@@ -622,9 +622,15 @@
         <div class = 'expForm'>
             <p>A. Please specify your current area of primary expertise or interest (ex. deep learning, reinforcement learning, human-computer interactions). Be as specific or general as you'd like.</p>
             <textarea comments cols=50 rows=1 placeholder='Unspecified' class = 'expText' name='expText'></textarea><br/>
-            <p>B. In which country are you currently conducting research? (if you conduct research across multiple countries, you may include more than one. If you not currently conducting research, for instance because you are retired, please list the most recent country where you have conducted research)</p>
+            <p>B. What is your level of expertise in machine learning? (Please specify whether you are a current PHd student, post-doc, or experienced researcher. Include number of years at current level)</p>
+            <textarea comments cols=50 rows=1 placeholder='1st year post-doc' class = 'expYears' name='expYears'></textarea><br/>
+            <p>C. In which country are you currently conducting research? (if you conduct research across multiple countries, you may include more than one. If you not currently conducting research, for instance because you are retired, please list the most recent country where you have conducted research)</p>
             <textarea comments cols=50 rows=1 placeholder='United Kingdom' class = 'expNation' name='expNation'></textarea><br/>
-            <p></p>
+            <p>D. Which of the following best describe your past experience of working with medical health professionals in building machine learning models?</p>
+                    <input type='radio' name='exp1' class='exp1' value=0> 1: I have no experience in this area<br>
+                    <input type='radio' name='exp1' class='exp1' value=1> 2: I have developed some medical models or used medical data, but have not personally collaborated with professionals personally<br>
+                    <input type='radio' name='exp1' class='exp1' value=2> 3: I have worked with medical professionals in developing relevant ML models<br>
+                    <p></p>
             <button class = 'expFormButton'>Next</button>
         </div>
  </div>
@@ -642,7 +648,7 @@
         </ul>
     </p>
     <p><i>Note that anonymised direct quotes may be used in publications and presentation.</i><br/><b>Important:</b> Do <b>not</b> include any personally identifiable information, such as name or email address, in your answer below.</p>
-    <p>You may also email the primary researcher at oren.lahav@gtc.ox.ac.uk.</p>
+    <p>You may also email the primary researcher at owen.lahav@gtc.ox.ac.uk.</p>
     <form class = 'commentForm' id = 'Feedback'>
         <textarea comments cols=120 rows=5 placeholder='Feedback:' class='feedbacktext' name='feedbacktext' form = 'Feedback'></textarea>
         <br />
@@ -1337,7 +1343,7 @@
             //Prevent page from refreshing
             e.preventDefault();
 
-            if($('.passcode').val() == 'MLCSDSSSTUDY')
+            if($('.passcode').val().substring(0,12) == 'MLCSDSSSTUDY')
             {
 
             console.log($('.passcode').val());
@@ -1449,18 +1455,18 @@
             else if(seqToRun[userContext][Part1Length] == 'C')
             {
                 $('.P1INT').show(); 
-                $('.P1OUT').show();  
+                //$('.P1OUT').show();  
             }
             else if (seqToRun[userContext][Part1Length] == 'D')
             {
                 //$('.P1INT').show(); 
-                $('.P1OUT').show();
+                //$('.P1OUT').show();
                 $('.P1SLIM').show();   
             }   
             else if (seqToRun[userContext][Part1Length] == 'E')
             {
                 //$('.P1INT').show(); 
-                $('.P1OUT').show();
+                //$('.P1OUT').show();
                 $('.P1TREE').show();   
             }   
             else if (seqToRun[userContext][Part1Length] == 'F')
@@ -1473,7 +1479,7 @@
             else if (seqToRun[userContext][Part1Length] == 'G')
             {
                 $('.P1INT').show(); 
-                $('.P1OUT').show();
+                //$('.P1OUT').show();
             }   
         })
 
@@ -1511,18 +1517,18 @@
                     else if(seqToRun[userContext][Part1Length] == 'C')
                     {
                         $('.P'+nextPatient+'INT').show(); 
-                        $('.P'+nextPatient+'OUT').show();  
+                        //$('.P'+nextPatient+'OUT').show();  
                     }
                     else if (seqToRun[userContext][Part1Length] == 'D')
                     {
                         //$('.P'+nextPatient+'INT').show(); 
-                        $('.P'+nextPatient+'OUT').show();
+                        //$('.P'+nextPatient+'OUT').show();
                         $('.P'+nextPatient+'SLIM').show();   
                     }    
                     else if (seqToRun[userContext][Part1Length] == 'E')
                     {
                         //$('.P'+nextPatient+'INT').show(); 
-                        $('.P'+nextPatient+'OUT').show();
+                        //$('.P'+nextPatient+'OUT').show();
                         $('.P'+nextPatient+'TREE').show();   
                     }    
                     else if (seqToRun[userContext][Part1Length] == 'F')
@@ -1535,7 +1541,7 @@
                     else if (seqToRun[userContext][Part1Length] == 'G')
                     {
                         $('.P'+nextPatient+'INT').show(); 
-                        $('.P'+nextPatient+'OUT').show();
+                        //$('.P'+nextPatient+'OUT').show();
                     }   
                 }
 
@@ -1594,7 +1600,9 @@
                 preprofile = []
 
                 preprofile.push($('.expText').val());
+                preprofile.push($('.expYears').val());
                 preprofile.push($('.expNation').val());
+                preprofile.push($('input[name=exp1]:checked').val());
                 
                 for(p in preprofile)
                 {
